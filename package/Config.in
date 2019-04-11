@@ -1725,6 +1725,7 @@ endif
 	source "package/uemacs/Config.in"
 if BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
 	source "package/vim/Config.in"
+	source "package/kilo/Config.in"
 endif
 endmenu
 
