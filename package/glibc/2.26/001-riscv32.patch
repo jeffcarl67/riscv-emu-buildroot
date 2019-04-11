@@ -1,0 +1,30 @@
+--- a/sysdeps/riscv/ldsodefs.h	2017-08-22 02:00:18.000000000 +0200
++++ b/sysdeps/riscv/ldsodefs.h	2018-09-22 14:13:24.267282019 +0200
+@@ -25,14 +25,14 @@
+ struct La_riscv_retval;
+ 
+ #define ARCH_PLTENTER_MEMBERS						\
+-    Elf64_Addr (*riscv_gnu_pltenter) (Elf64_Sym *, unsigned int,	\
++    Elf64_Addr (*riscv_gnu_pltenter) (ElfW(Sym) *, unsigned int,	\
+ 				      uintptr_t *, uintptr_t *,		\
+ 				      const struct La_riscv_regs *,	\
+ 				      unsigned int *, const char *name,	\
+ 				      long int *framesizep);
+ 
+ #define ARCH_PLTEXIT_MEMBERS						\
+-    unsigned int (*riscv_gnu_pltexit) (Elf64_Sym *, unsigned int,	\
++    unsigned int (*riscv_gnu_pltexit) (ElfW(Sym) *, unsigned int,	\
+ 				       uintptr_t *, uintptr_t *,	\
+ 				       const struct La_riscv_regs *,	\
+ 				       struct La_riscv_retval *,	\
+--- a/elf/dl-runtime.c	2017-08-22 02:00:18.000000000 +0200
++++ b/elf/dl-runtime.c	2018-09-22 14:14:14.951875493 +0200
+@@ -145,7 +145,7 @@
+   /* Finally, fix up the plt itself.  */
+   if (__glibc_unlikely (GLRO(dl_bind_not)))
+     return value;
+-
++  (void)refsym;
+   return elf_machine_fixup_plt (l, result, refsym, sym, reloc, rel_addr, value);
+ }
+ 

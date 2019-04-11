@@ -1,0 +1,14 @@
+config BR2_ARCH
+	default "riscv32" if BR2_riscv32
+	default "riscv64" if BR2_riscv64
+
+config BR2_ENDIAN
+	default "LITTLE"
+
+config BR2_GCC_TARGET_ARCH
+	default "rv32gc"	if BR2_riscv32
+	default "rv64gc"	if BR2_riscv64
+
+config BR2_GCC_TARGET_ABI
+	default "ilp32d"	if BR2_riscv32
+	default "lp64d"	        if BR2_riscv64

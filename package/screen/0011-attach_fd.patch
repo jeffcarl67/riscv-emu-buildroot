@@ -1,0 +1,15 @@
+--- screen-4.3.1/screen.c.org	2017-06-12 18:59:01.685549548 +0200
++++ screen-4.3.1/screen.c	2017-06-12 18:59:05.197367941 +0200
+@@ -1028,7 +1028,11 @@
+ 	{
+ 	  if ((n = secopen(attach_tty, O_RDWR | O_NONBLOCK, 0)) < 0)
+ 	    Panic(0, "Cannot open your terminal '%s' - please check.", attach_tty);
+-	  close(n);
++          if (attach_fd < 0) {
++              attach_fd = n;
++          } else {
++              close(n);
++          }
+ 	}
+       debug2("attach_tty is %s, attach_fd is %d\n", attach_tty, attach_fd);
+ 

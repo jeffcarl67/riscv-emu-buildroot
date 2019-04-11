@@ -1,0 +1,4 @@
+config BR2_PACKAGE_GCC_TARGET2
+	bool "gcc_target2"
+	help
+	  Install gcc on the target

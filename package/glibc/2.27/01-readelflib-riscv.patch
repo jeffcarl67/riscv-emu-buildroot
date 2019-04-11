@@ -1,0 +1,11 @@
+--- a/sysdeps/unix/sysv/linux/riscv/readelflib.c	2018-02-01 17:17:18.000000000 +0100
++++ b/sysdeps/unix/sysv/linux/riscv/readelflib.c	2018-09-15 19:42:51.671224398 +0200
+@@ -59,7 +59,7 @@
+     {
+       ret = process_elf64_file (file_name, lib, flag, osversion, soname,
+ 				file_contents, file_length);
+-      flags = elf32_header->e_flags;
++      flags = elf_header->e_flags;
+     }
+ 
+   /* RISC-V linkers encode the floating point ABI as part of the ELF headers.  */

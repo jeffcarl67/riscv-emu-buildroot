@@ -1,0 +1,22 @@
+--- a/src/math/riscv32/sqrt.c	2018-10-19 05:44:34.000000000 +0200
++++ b/src/math/riscv32/sqrt.c	2018-10-20 10:48:14.466089082 +0200
+@@ -4,7 +4,7 @@
+ 
+ double sqrt(double x)
+ {
+-	__asm__ ("sqrt.d %0, %1" : "=f"(x) : "f"(x));
++	__asm__ ("fsqrt.d %0, %1" : "=f"(x) : "f"(x));
+ 	return x;
+ }
+ 
+--- a/src/math/riscv64/sqrt.c	2018-10-19 05:44:34.000000000 +0200
++++ b/src/math/riscv64/sqrt.c	2018-10-20 10:48:35.365095589 +0200
+@@ -4,7 +4,7 @@
+ 
+ double sqrt(double x)
+ {
+-	__asm__ ("sqrt.d %0, %1" : "=f"(x) : "f"(x));
++	__asm__ ("fsqrt.d %0, %1" : "=f"(x) : "f"(x));
+ 	return x;
+ }
+ 

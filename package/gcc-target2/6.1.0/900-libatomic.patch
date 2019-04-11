@@ -1,0 +1,11 @@
+--- libatomic/Makefile.in	2016-04-27 10:22:11.000000000 +0200
++++ libatomic/Makefile.in	2017-05-25 11:27:44.073757243 +0200
+@@ -330,7 +330,7 @@
+ PAT_S = $(word 3,$(PAT_SPLIT))
+ IFUNC_DEF = -DIFUNC_ALT=$(PAT_S)
+ IFUNC_OPT = $(word $(PAT_S),$(IFUNC_OPTIONS))
+-M_DEPS = -MT $@ -MD -MP -MF $(DEPDIR)/$(@F).Ppo
++#M_DEPS = -MT $@ -MD -MP -MF $(DEPDIR)/$(@F).Ppo
+ M_SIZE = -DN=$(PAT_N)
+ M_IFUNC = $(if $(PAT_S),$(IFUNC_DEF) $(IFUNC_OPT))
+ M_FILE = $(PAT_BASE)_n.c

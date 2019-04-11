@@ -1,0 +1,13 @@
+--- a/libatomic/Makefile.in	2018-01-25 09:17:54.127232056 +0100
++++ b/libatomic/Makefile.in	2018-08-19 14:57:47.005678530 +0200
+@@ -331,7 +331,9 @@
+ PAT_S = $(word 3,$(PAT_SPLIT))
+ IFUNC_DEF = -DIFUNC_ALT=$(PAT_S)
+ IFUNC_OPT = $(word $(PAT_S),$(IFUNC_OPTIONS))
+-M_DEPS = -MT $@ -MD -MP -MF $(DEPDIR)/$(@F).Ppo
++# The .deps directory is not created so we just remove the dependency
++# file generation
++#M_DEPS = -MT $@ -MD -MP -MF $(DEPDIR)/$(@F).Ppo
+ M_SIZE = -DN=$(PAT_N)
+ M_IFUNC = $(if $(PAT_S),$(IFUNC_DEF) $(IFUNC_OPT))
+ M_FILE = $(PAT_BASE)_n.c
