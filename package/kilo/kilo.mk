@@ -5,7 +5,7 @@
 ################################################################################
 
 KILO_VERSION = af3919d68cb2e70a3d9a2309596cf290cf6bc1ac
-KILO_SITE = https://github.com/sysprog21/kilo.git
+KILO_SITE = $(call github,sysprog21,kilo,$(KILO_VERSION))
 KILO_SITE_METHOD = git
 
 define KILO_BUILD_CMDS
